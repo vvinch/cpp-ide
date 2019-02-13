@@ -18,6 +18,7 @@ WORKDIR /src
 USER vscode
 
 RUN code --install-extension ms-vscode.cpptools
+RUN code --install-extension vector-of-bool.cmake-tools
 
 # Environment variables
 ENV DISPLAY=:0.0
