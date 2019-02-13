@@ -6,7 +6,7 @@ C++ development environment with Visual Studio Code IDE.
 
 The following software is installed:
 
-- GCC-5 compiler
+- GCC-8 compiler
 - Visual Studio Code with C++ extension
 
 ## Usage
@@ -14,7 +14,7 @@ The following software is installed:
 ```bash
 docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix \
                     -v sources_folder:/src \
-                    vvinch/go-ide
+                    vvinch/cpp-ide
 ```
 
 ### Volumes
