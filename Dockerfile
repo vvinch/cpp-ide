@@ -1,7 +1,10 @@
 FROM teeks99/boost-cpp-docker:gcc-5
 
 # Install required packages
-RUN apt-get update && apt-get install -y libxkbfile1 libsecret-1-0 libnotify4 libgconf-2-4 libnss3 libgtk2.0-0 libxss1 libgconf-2-4 libasound2 libxtst6 libcanberra-gtk-dev libgl1-mesa-glx libgl1-mesa-dri
+RUN apt-get update && apt-get install -y \
+    libxkbfile1 libsecret-1-0 libnotify4 libgconf-2-4 libnss3 libgtk2.0-0 libxss1 \
+    libgconf-2-4 libasound2 libxtst6 libcanberra-gtk-dev libgl1-mesa-glx libgl1-mesa-dri \
+    cmake ninja
 
 # Install visual studio code
 RUN wget https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb && \
