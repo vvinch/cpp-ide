@@ -13,7 +13,7 @@ The following software is installed:
 
 ```bash
 docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix \
-                    -v sources_folder:/go/src \
+                    -v sources_folder:/src \
                     vvinch/go-ide
 ```
 
