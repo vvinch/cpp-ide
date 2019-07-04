@@ -17,6 +17,7 @@ docker run --rm -it -v /tmp/.X11-unix:/tmp/.X11-unix \
                     -v sources_folder:/src \
                     --cap-add=SYS_PTRACE \
                     --security-opt seccomp=unconfined \
+                    --security-opt apparmor=unconfined \
                     vvinch/cpp-ide
 ```
 
