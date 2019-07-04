@@ -30,6 +30,7 @@ USER vscode
 RUN code --install-extension ms-vscode.cpptools
 RUN code --install-extension vector-of-bool.cmake-tools
 RUN code --install-extension go2sh.cmake-integration-vscode
+RUN code --install-extension eamodio.gitlens
 
 # Environment variables
 ENV DISPLAY=:0.0
