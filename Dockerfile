@@ -31,6 +31,7 @@ RUN code --install-extension ms-vscode.cpptools
 RUN code --install-extension vector-of-bool.cmake-tools
 RUN code --install-extension go2sh.cmake-integration-vscode
 RUN code --install-extension eamodio.gitlens
+RUN code --install-extension twxs.cmake
 
 # Environment variables
 ENV DISPLAY=:0.0
