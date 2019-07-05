@@ -4,7 +4,7 @@ FROM teeks99/boost-cpp-docker:gcc-8
 RUN apt-get update && apt-get install -y \
     libxkbfile1 libsecret-1-0 libnotify4 libgconf-2-4 libnss3 libgtk2.0-0 libxss1 \
     libgconf-2-4 libasound2 libxtst6 libcanberra-gtk-dev libgl1-mesa-glx libgl1-mesa-dri \
-    ninja-build gdb
+    ninja-build gdb ant
 
 # Compile & Install CMake latest release
 RUN git clone --single-branch --branch release https://github.com/Kitware/CMake.git && \
@@ -33,6 +33,7 @@ RUN code --install-extension go2sh.cmake-integration-vscode
 RUN code --install-extension eamodio.gitlens
 RUN code --install-extension twxs.cmake
 RUN code --install-extension cschlosser.doxdocgen
+RUN code --install-extension spmeesseman.vscode-taskexplorer
 
 # Environment variables
 ENV DISPLAY=:0.0
