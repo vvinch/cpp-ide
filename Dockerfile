@@ -4,7 +4,7 @@ FROM teeks99/boost-cpp-docker:gcc-8
 RUN apt-get update && apt-get install -y \
     libxkbfile1 libsecret-1-0 libnotify4 libgconf-2-4 libnss3 libgtk2.0-0 libxss1 \
     libgconf-2-4 libasound2 libxtst6 libcanberra-gtk-dev libgl1-mesa-glx libgl1-mesa-dri \
-    ninja-build gdb ant
+    ninja-build gdb ant curl
 
 # Compile & Install CMake latest release
 RUN git clone --single-branch --branch release https://github.com/Kitware/CMake.git && \
