@@ -1,4 +1,4 @@
-FROM teeks99/boost-cpp-docker:gcc-8
+FROM teeks99/boost-cpp-docker:gcc-4.4
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
