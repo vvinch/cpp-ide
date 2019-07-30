@@ -1,19 +1,31 @@
-FROM teeks99/boost-cpp-docker:gcc-4.9
+FROM debian:stretch-slim
 
-# Install required packages
-RUN apt-get update && apt-get install -y \
-    libxkbfile1 libsecret-1-0 libnotify4 libgconf-2-4 libnss3 libgtk2.0-0 libxss1 \
-    libgconf-2-4 libasound2 libxtst6 libcanberra-gtk-dev libgl1-mesa-glx libgl1-mesa-dri \
-    ninja-build gdb ant curl
+# ensure java is installed properly
+RUN mkdir -p /usr/share/man/man1
 
-# Compile & Install CMake latest release
-RUN git clone --single-branch --branch release https://github.com/Kitware/CMake.git && \
-    cd CMake; \
-    ./bootstrap && \
-    make -j4 && \
-    make install && \
-    cd ..; rm -R CMake
 
+RUN apt-get update && \
+    apt-get install -y \
+      ca-certificates \
+      build-essential \
+      gcc-multilib g++-multilib \
+      ninja-build \
+      gdb \
+      cmake \
+      openjdk-8-jdk \
+      ant \
+      git \
+      doxygen \
+      wget \
+      curl \
+      nano
+
+# Environment variables
+ENV DISPLAY=:0.0
+ENV VS_OPTIONS=""
+
+# ADD jsch package to the ANT
+RUN wget -O jsch-latest.jar https://sourceforge.net/projects/jsch/files/latest/download
 
 # Install visual studio code
 RUN wget https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb && \
@@ -34,9 +46,7 @@ RUN code --install-extension eamodio.gitlens
 RUN code --install-extension twxs.cmake
 RUN code --install-extension cschlosser.doxdocgen
 RUN code --install-extension spmeesseman.vscode-taskexplorer
+RUN code --install-extension mutantdino.resourcemonitor
 
-# Environment variables
-ENV DISPLAY=:0.0
-ENV VS_OPTIONS=""
 
 CMD [ "/bin/bash", "-c",  "code ${VS_OPTIONS} --verbose --disable-gpu -n ." ]
