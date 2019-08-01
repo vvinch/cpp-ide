@@ -25,7 +25,8 @@ ENV DISPLAY=:0.0
 ENV VS_OPTIONS=""
 
 # ADD jsch package to the ANT
-RUN wget -O jsch-latest.jar https://sourceforge.net/projects/jsch/files/latest/download
+ENV ANT_HOME=/usr/share/ant
+RUN wget -O ${ANT_HOME}/jsch-latest.jar https://sourceforge.net/projects/jsch/files/latest/download
 
 # Install visual studio code
 RUN wget https://go.microsoft.com/fwlink/?LinkID=760868 -O vscode.deb && \
